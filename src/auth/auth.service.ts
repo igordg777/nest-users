@@ -32,9 +32,9 @@ export class AuthService {
             if (passwordEquals) {
                 return user;
             }
-            throw new UnauthorizedException({ messsge: "Неорртектный пароль" })
+            throw new UnauthorizedException({ messsge: "Некорртектный пароль" })
         } else {
-            throw new UnauthorizedException({ messsge: "Неорртектный email" })
+            throw new UnauthorizedException({ messsge: "Некорртектный email" })
         }
 
     }
