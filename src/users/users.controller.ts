@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Get, UseGuards, UsePipes } from '@nestjs/common';
 import { createUserDTO } from './dto/create-user.dto';
 import { UsersService } from './users.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -8,6 +8,7 @@ import { Roles } from 'src/auth/roles-auth.decorator';
 import { RolesGuard } from 'src/auth/roles.guard';
 import { AddRoleDto } from './dto/add-role.dto';
 import { BanUserDto } from './dto/ban-user.dto';
+import { ValidationPipe } from 'src/pipes/validation.pipe';
 
 
 @ApiTags('Пользователи')
@@ -18,7 +19,7 @@ export class UsersController {
 
     @ApiOperation({ summary: 'Создание пользователя' })
     @ApiResponse({ status: 200, type: User })
-
+    // @UsePipes(ValidationPipe) ValidationPipe можем использовать как локально, так и глобально
     @Post()
     create(@Body() userDto: createUserDTO) {
         return this.userService.createUser(userDto)

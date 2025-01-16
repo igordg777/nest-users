@@ -1,0 +1,5 @@
+Создание миграции через sequelize-cli
+
+Создание новой миграции
+npx sequelize-cli migration:generate --name change-banReason-type
+
