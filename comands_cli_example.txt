@@ -1,0 +1,3 @@
+nest generate module posts
+nest generate service posts
+ nest generate controller posts
